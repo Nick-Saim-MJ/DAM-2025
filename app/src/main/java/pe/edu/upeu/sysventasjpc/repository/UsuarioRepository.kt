@@ -10,10 +10,8 @@ interface UsuarioRepository {
     suspend fun loginUsuario(user:UsuarioDto):
             Response<UsuarioResp>
 }
-class UsuarioRepositoryImp @Inject constructor(private val
-                                               restUsuario: RestUsuario):UsuarioRepository{
-    override suspend fun loginUsuario(user:UsuarioDto):
-            Response<UsuarioResp>{
+class UsuarioRepositoryImp @Inject constructor(private val restUsuario: RestUsuario):UsuarioRepository{
+    override suspend fun loginUsuario(user:UsuarioDto): Response<UsuarioResp>{
         return restUsuario.login(user)
     }
 }

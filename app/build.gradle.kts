@@ -18,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        tasks.withType<JavaCompile>().configureEach {
+            options.compilerArgs.add("-Xlint:deprecation")
+        }
     }
 
     buildTypes {
@@ -57,9 +60,11 @@ dependencies {
     //Agregado Dagger - Hilt Compose
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
     //old 1.0.0
-    implementation ("com.valentinilk.shimmer:compose-shimmer:1.3.1") //old 1.0.5
-    implementation ("io.coil-kt:coil-compose:2.7.0") //old 2.4.0
+    implementation ("com.valentinilk.shimmer:compose-shimmer:1.3.2") //old 1.0.5
     //Agregado LiveData compose//implementation
+    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
+
     implementation ("androidx.compose.ui:ui-tooling")
     implementation ("androidx.compose.foundation:foundation")
     implementation ("androidx.compose.runtime:runtime-livedata")

@@ -6,3 +6,4 @@ object ComposeReal{
     var COMPOSE_TOP: @Composable ()-> Unit={}
     var TITLE_TOP:String=""
 }
+
