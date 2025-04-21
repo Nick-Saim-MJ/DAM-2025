@@ -1,10 +1,15 @@
 package pe.edu.upeu.sysventasjpc.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import pe.edu.upeu.sysventasjpc.data.local.DbDataSource
+import pe.edu.upeu.sysventasjpc.data.local.dao.MarcaDao
 import pe.edu.upeu.sysventasjpc.data.remote.RestCategoria
 import pe.edu.upeu.sysventasjpc.data.remote.RestMarca
 import pe.edu.upeu.sysventasjpc.data.remote.RestProducto
@@ -20,6 +25,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class DataSourceModule {
+
+    //Api REST
     var retrofit: Retrofit?=null
     @Singleton
     @Provides
@@ -43,6 +50,21 @@ class DataSourceModule {
         }
         return retrofit!!
     }
+
+    //DB Local
+    @Singleton
+    @Provides
+    fun dbDataSource(@ApplicationContext context: Context):DbDataSource{
+        return Room.databaseBuilder(context, DbDataSource::class.java, "almacen_db").build()
+    }
+
+    @Singleton
+    @Provides
+    fun marcaDao(db:DbDataSource):MarcaDao{
+        return db.marcaDao()
+    }
+
+    //APi Rest
     @Singleton
     @Provides
     fun restUsuario(retrofit: Retrofit):RestUsuario{
