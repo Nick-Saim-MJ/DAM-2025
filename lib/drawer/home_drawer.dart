@@ -42,6 +42,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
         imageName: 'assets/imagen/man-icon.png',
       ),
       DrawerList(
+        index: DrawerIndex.ACTIVIDAD,
+        labelName: 'Actividad',
+        isAssetsImage: true,
+        imageName: 'assets/imagen/man-icon.png',
+      ),
+      DrawerList(
         index: DrawerIndex.Help,
         labelName: 'Destino Bloc',
         icon: Icon(Icons.help),
@@ -297,7 +303,8 @@ enum DrawerIndex {
   About,
   Invite,
   Testing,
-  Imagex
+  Imagex,
+  ACTIVIDAD
 }
 
 class DrawerList {

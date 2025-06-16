@@ -4,7 +4,7 @@ import 'package:granturismo/modelo/MessageModelo.dart';
 import 'package:granturismo/modelo/DestinoModelo.dart';
 import 'package:granturismo/util/TokenUtil.dart';
 
-class ProductoRepository{
+class DestinoRepository{
   DestinoApi? destinoApi;
 
   DestinoRepository(){

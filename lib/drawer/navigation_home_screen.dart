@@ -1,6 +1,7 @@
 import 'package:granturismo/theme/AppTheme.dart';
 import 'package:granturismo/drawer/drawer_user_controller.dart';
 import 'package:granturismo/drawer/home_drawer.dart';
+import 'package:granturismo/ui/actividad/actividad_main.dart';
 import 'package:granturismo/ui/help_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:granturismo/ui/destino/destino_main.dart';
@@ -59,6 +60,12 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         setState(() {
           screenView = MainDestino();
         });
+
+      }else if (drawerIndex == DrawerIndex.ACTIVIDAD) {
+        setState(() {
+          screenView = MainActividad();
+        });
+
       } else if (drawerIndex == DrawerIndex.Imagex) {
         setState(() {
           //screenView = MainUploadImage();
